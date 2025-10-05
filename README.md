@@ -207,3 +207,12 @@ This EDA serves as a foundational step before building predictive models, as it 
 - Apply logistic regression or decision trees using the cleaned dataset.
 
 - Extend analysis with additional visualizations for deeper insights.
+
+# Author
+
+**Duru Chukwuma**
+
+📧 chukwuduru588@gmail.com
+
+🔗 [LinkedIn](https://linkedin.com/in/chukwuma-duru)  
+🔗 [Portfolio](https://www.datascienceportfol.io/chukwuduru588)

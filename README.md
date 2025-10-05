@@ -109,4 +109,4 @@ sns.histplot(titanic['age'].dropna(), kde=True, bins=30)
 plt.title("Age Distribution of Passengers")
 plt.show()
 ```
-![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%202.png)
+![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%203.png)

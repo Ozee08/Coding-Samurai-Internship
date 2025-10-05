@@ -208,6 +208,131 @@ This EDA serves as a foundational step before building predictive models, as it 
 
 - Extend analysis with additional visualizations for deeper insights.
 
+# Project 2
+
+## **Natural Language Processing (NLP) - Sentiment Analysis**
+## Introduction
+
+## Objective:
+The goal of this project is to perform **Sentiment Analysis** on social media data to understand public opinions, emotions, and attitudes expressed in online posts. By analyzing user-generated content such as tweets, we can automatically classify sentiments as **positive, negative, or neutral.**
+
+This project demonstrates how Natural Language Processing (NLP) techniques can be applied to real-world text data to extract meaningful insights from human language — a vital skill in today’s data-driven and socially connected world.
+
+## Approach:
+We will collect social media data (e.g., from Twitter) and preprocess the text by cleaning noise such as emojis, hashtags, mentions, and URLs. Then, using NLP tools like **NLTK, TextBlob, or VADER,** we’ll evaluate the polarity and subjectivity of each post to determine its sentiment category.
+
+## Learning Outcome:
+By completing this project, we gain hands-on experience with:
+
+- **Text preprocessing (tokenization, stopword removal, lemmatization)**
+
+- **Sentiment classification using NLP libraries**
+
+- **Data visualization to interpret overall sentiment trends**
+
+Ultimately, this project bridges data analytics with language understanding — transforming unstructured text into actionable insights for decision-making in business, marketing, or social research.
+- Preprocess text data (tokenization, removing
+stopwords, and stemming/lemmatization).
+- Use nltk or TextBlob for sentiment analysis.
+- Visualize the sentiment distribution and word
+frequencies using word clouds.
+# Step 1: Import Libraries & Load Data
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+from textblob import TextBlob
+import re
+
+# Download NLTK resources
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('punkt_tab') # Download punkt_tab resource
+
+from google.colab import files
+uploaded = files.upload()
+df = pd.read_csv("3) Sentiment dataset.csv")
+
+print(df.head())
+```
+## Interpretation:
+We first load all required libraries for NLP, visualization, and sentiment scoring. Then, we import the Sentiment dataset and preview it. This ensures the data is correctly loaded and ready for processing.
+# Step 2: Preprocess Text Data
+```python
+# Initialize stemmer and stopwords
+stemmer = PorterStemmer()
+stop_words = set(stopwords.words('english'))
+
+def preprocess_text(text):
+    # Remove special characters and numbers
+    text = re.sub(r'[^a-zA-Z\s]', '', str(text))
+    # Tokenize into words
+    tokens = nltk.word_tokenize(text.lower())
+    # Remove stopwords and apply stemming
+    tokens = [stemmer.stem(word) for word in tokens if word not in stop_words]
+    return " ".join(tokens)
+
+# Apply preprocessing
+df['cleaned_text'] = df['Text'].apply(preprocess_text)
+
+# Preview cleaned text
+print(df[['Text', 'cleaned_text']].head())
+```
+## Interpretation:
+- The preprocessing pipeline ensures our text is standardized by:
+
+- Removing numbers & special characters.
+
+- Tokenizing words (splitting into individual terms).
+
+- Removing stopwords (common words like “the”, “is”).
+
+- Applying stemming (reducing words like running → run).
+
+This prepares the text for accurate sentiment analysis.
+# Step 3: Sentiment Classification
+```python
+# Sentiment classification function
+def get_sentiment(text):
+    analysis = TextBlob(text)
+    polarity = analysis.sentiment.polarity  # -1 to +1
+    if polarity > 0:
+        return "Positive"
+    elif polarity < 0:
+        return "Negative"
+    else:
+        return "Neutral"
+
+# Apply classification
+df['sentiment'] = df['cleaned_text'].apply(get_sentiment)
+
+# Preview results
+print(df[['cleaned_text','sentiment']].head())
+```
+## Interpretation:
+
+TextBlob assigns a polarity score to each text:
+
+- greater than 0 → Positive sentiment
+
+- greater than 0 → Negative sentiment
+
+- = 0 → Neutral sentiment
+
+This transforms raw text into structured sentiment categories.
+# Step 4: Sentiment Distribution
+```python
+# Plot distribution
+df['sentiment'].value_counts().plot(kind='bar', color=['gray','green','red'])
+plt.title("Sentiment Distribution")
+plt.xlabel("Sentiment Category")
+plt.ylabel("Number of Reviews")
+plt.show()
+```
+![Missing Values per Column](Titanic%20EDA/Sentiment%20Analysis%20Images/Coding%20Samurai%20NLP.png)
 # Author
 
 **Duru Chukwuma**

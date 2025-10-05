@@ -332,12 +332,76 @@ plt.xlabel("Sentiment Category")
 plt.ylabel("Number of Reviews")
 plt.show()
 ```
-![Missing Values per Column](Titanic%20EDA/Sentiment%20Analysis%20Images/Coding%20Samurai%20NLP.png)
+![Missing Values per Column](Sentiment%20Analysis/Sentiment%20Analysis%20Images/Coding%20Samurai%20NLP.png)
+## Interpretation:
+- This bar chart shows the balance of sentiments in the dataset.
+
+- If one sentiment dominates, it may affect downstream NLP models.
+
+- If balanced, it indicates a good dataset for training classifiers.
+# Step 5: Word Cloud Visualizations
+## Positive Reviews
+```python
+positive_text = " ".join(df[df['sentiment']=="Positive"]['cleaned_text'])
+wordcloud_pos = WordCloud(width=800, height=400, background_color="white").generate(positive_text)
+
+plt.figure(figsize=(10,5))
+plt.imshow(wordcloud_pos, interpolation="bilinear")
+plt.axis("off")
+plt.title("Word Cloud - Positive Reviews", fontsize=14)
+plt.show()
+```
+![Missing Values per Column](Sentiment%20Analysis/Sentiment%20Analysis%20Images/Coding%20Samurai%20NLP%202.png)
+## Negative Reviews
+```python
+negative_text = " ".join(df[df['sentiment']=="Negative"]['cleaned_text'])
+wordcloud_neg = WordCloud(width=800, height=400, background_color="black", colormap="Reds").generate(negative_text)
+
+plt.figure(figsize=(10,5))
+plt.imshow(wordcloud_neg, interpolation="bilinear")
+plt.axis("off")
+plt.title("Word Cloud - Negative Reviews", fontsize=14)
+plt.show()
+```
+![Missing Values per Column](Sentiment%20Analysis/Sentiment%20Analysis%20Images/Coding%20Samurai%20NLP%203.png)
+## Neutral Reviews
+```python
+neutral_text = " ".join(df[df['sentiment']=="Neutral"]['cleaned_text'])
+wordcloud_neu = WordCloud(width=800, height=400, background_color="gray", colormap="Blues").generate(neutral_text)
+
+plt.figure(figsize=(10,5))
+plt.imshow(wordcloud_neu, interpolation="bilinear")
+plt.axis("off")
+plt.title("Word Cloud - Neutral Reviews", fontsize=14)
+plt.show()
+```
+![Missing Values per Column](Sentiment%20Analysis/Sentiment%20Analysis%20Images/Coding%20Samurai%20NLP%204.png)
+## Interpretation:
+
+- Positive Word Cloud: shows commonly used positive terms (e.g., great, love, amazing).
+
+- Negative Word Cloud: highlights frequent negative words (e.g., bad, hate, worst).
+
+- Neutral Word Cloud: captures neutral/common expressions (e.g., okay, average, fine).
+
+This gives us deep insights into how people express emotions in text.
+
+# ✅Final Professional Interpretation:
+
+- Dataset successfully cleaned and preprocessed.
+
+- Text classified into Positive, Negative, Neutral using TextBlob.
+
+- Sentiment distribution visualized with bar charts.
+
+- Word Clouds generated for all three sentiment categories to show key vocabulary patterns.
+
+This pipeline is ready for reporting, dashboards, or as input for advanced NLP models like Logistic Regression, Naive Bayes, or Transformers.
 # Author
 
 **Duru Chukwuma**
 
-📧 chukwuduru588@gmail.com
+📧 **chukwuduru588@gmail.com**
 
 🔗 [LinkedIn](https://linkedin.com/in/chukwuma-duru)  
 🔗 [Portfolio](https://www.datascienceportfol.io/chukwuduru588)

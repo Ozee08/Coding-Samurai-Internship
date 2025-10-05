@@ -132,3 +132,78 @@ plt.show()
 ![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%205.png)
 ### Interpretation:
 There were **more males** than females on board, which may influence overall survival statistics.
+
+### **Step 7. Bivariate Analysis** (Relationships between two variables)
+### a. Survival by Gender
+```python
+sns.countplot(x='sex', hue='survived', data=titanic)
+plt.title("Survival Count by Gender")
+plt.show()
+```
+![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%206.png)
+### Interpretation:
+A much higher percentage of **females survived** compared to males — consistent with the “women and children first” policy during evacuation.
+
+### b. Survival Rate by Class
+```python
+sns.barplot(x='class', y='survived', data=titanic)
+plt.title("Survival Rate by Passenger Class")
+plt.show()
+```
+![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%207.png)
+### Interpretation:
+Passengers in **1st class** had a significantly higher survival rate than those in 2nd or 3rd class — showing that **social and economic status** played a role in survival chances.
+
+### c. Age vs Fare Colored by Survival
+```python
+sns.scatterplot(x='age', y='fare', hue='survived', data=titanic)
+plt.title("Age vs Fare (Colored by Survival)")
+plt.show()
+```
+![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%208.png)
+### Interpretation:
+Passengers who paid higher fares (mostly older and from 1st class) had **better survival rates**. Younger passengers in lower fare categories were less likely to survive.
+
+### **Step 9: Correlation Analysis**
+```python
+corr = titanic.corr(numeric_only=True)
+plt.figure(figsize=(8,6))
+sns.heatmap(corr, annot=True, cmap='coolwarm')
+plt.title("Correlation Heatmap")
+plt.show()
+```
+![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%209.png)
+### Interpretation:
+The heatmap shows numeric correlations:
+
+- **Fare has a positive correlation with Survival, meaning higher fares increased survival likelihood**.
+
+- **Pclass is negatively correlated with Survival, confirming that lower classes faced higher death rates**.
+
+# Key Insights & Findings
+##🔍 Insights Summary
+
+- **1. Gender: Females had a much higher survival rate than males.**
+
+- **2. Class: Passengers in 1st class had a significantly better chance of survival.**
+
+- **3. Fare: Higher fares correlated positively with survival (wealthier passengers survived more).**
+
+- **4. Age: Younger passengers showed slightly higher survival chances, though the relationship wasn’t strong.**
+
+- **5. Missing Data: Some columns like deck were mostly empty, so they were dropped to maintain accuracy.**
+  # 🧾 Conclusion
+
+The EDA reveals clear **social and economic disparities** in survival rates aboard the Titanic. Factors such as **gender, class, and fare** were strong determinants of survival, reflecting the societal norms of the early 1900s.
+
+By performing this analysis, we not only understand the dataset’s structure but also see how real-world inequalities manifested in survival outcomes.
+
+This EDA serves as a foundational step before building predictive models, as it highlights which features most strongly influence survival probability.
+
+## 💡 Future Work
+
+- Build a predictive model to estimate survival chances.
+
+- Apply logistic regression or decision trees using the cleaned dataset.
+
+- Extend analysis with additional visualizations for deeper insights.

@@ -110,3 +110,25 @@ plt.title("Age Distribution of Passengers")
 plt.show()
 ```
 ![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%203.png)
+### Interpretation:
+The histogram shows that most passengers were between **20–40 years old**, suggesting that the majority on board were young adults.
+
+### b. Passenger Class Distribution
+```python
+sns.countplot(x='class', data=titanic)
+plt.title("Passenger Count by Class")
+plt.show()
+```
+![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%204.png)
+### Interpretation:
+Most passengers were in **3rd class**, indicating that the ship had a higher number of lower-income travelers.
+
+### c. Gender Distribution
+```python
+sns.countplot(x='sex', data=titanic)
+plt.title("Gender Distribution of Passengers")
+plt.show()
+```
+![Missing Values per Column](Titanic%20EDA/Titanic%20dataset%20images/Coding%20Samurai%205.png)
+### Interpretation:
+There were **more males** than females on board, which may influence overall survival statistics.

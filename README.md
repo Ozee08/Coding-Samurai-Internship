@@ -1,6 +1,6 @@
 # Coding-Samurai-Internship
 # Project 1
-# 🚢 Titanic Dataset - Exploratory Data Analysis (EDA)
+#  Titanic Dataset - Exploratory Data Analysis (EDA)
 
 ##  Project Overview
 This project performs an **Exploratory Data Analysis (EDA)** on the classic **Titanic dataset** — one of the most well-known datasets in data science.  
@@ -10,7 +10,7 @@ By performing detailed data exploration, visualization, and interpretation, this
 
 ---
 
-## 🎯 Objective
+##  Objective
 The main objective is to:
 - Explore and understand the Titanic dataset structure.
 - Identify patterns and correlations affecting passenger survival.
@@ -181,7 +181,7 @@ The heatmap shows numeric correlations:
 - **Pclass is negatively correlated with Survival, confirming that lower classes faced higher death rates**.
 
 # Key Insights & Findings
-##🔍 Insights Summary
+## Insights Summary
 
 - **1. Gender: Females had a much higher survival rate than males.**
 
@@ -192,7 +192,7 @@ The heatmap shows numeric correlations:
 - **4. Age: Younger passengers showed slightly higher survival chances, though the relationship wasn’t strong.**
 
 - **5. Missing Data: Some columns like deck were mostly empty, so they were dropped to maintain accuracy.**
-  # 🧾 Conclusion
+  #  Conclusion
 
 The EDA reveals clear **social and economic disparities** in survival rates aboard the Titanic. Factors such as **gender, class, and fare** were strong determinants of survival, reflecting the societal norms of the early 1900s.
 
@@ -200,7 +200,7 @@ By performing this analysis, we not only understand the dataset’s structure bu
 
 This EDA serves as a foundational step before building predictive models, as it highlights which features most strongly influence survival probability.
 
-## 💡 Future Work
+##  Future Work
 
 - Build a predictive model to estimate survival chances.
 
@@ -386,7 +386,7 @@ plt.show()
 
 This gives us deep insights into how people express emotions in text.
 
-# ✅Final Professional Interpretation:
+# Final Professional Interpretation:
 
 - Dataset successfully cleaned and preprocessed.
 
@@ -401,7 +401,7 @@ This pipeline is ready for reporting, dashboards, or as input for advanced NLP m
 
 **Duru Chukwuma**
 
-📧 **chukwuduru588@gmail.com**
+ **chukwuduru588@gmail.com**
 
 🔗 [LinkedIn](https://linkedin.com/in/chukwuma-duru)  
 🔗 [Portfolio](https://www.datascienceportfol.io/chukwuduru588)
